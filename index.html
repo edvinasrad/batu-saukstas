@@ -1,0 +1,1100 @@
+<!doctype html>
+<html lang="lt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Kaip Lietuvoje pasigaminti buko batų šaukštą su magnetiniu sieniniu laikikliu: brėžinys, pirkiniai su kainomis, įrankiai ir 24 žingsniai.">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Magnetinis batų šaukštas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dirbtuvių lapas – viena ~1000px kolona, brėžiniai su 10 mm tinkleliu, žingsniai kaip numeruota juosta */
+:root {
+  --bg: #F1F3F1;
+  --surface: #FFFFFF;
+  --surface-2: #F6F7F5;
+  --ink: #1B1F1C;
+  --muted: #59625C;
+  --line: #D3D8D4;
+  --accent: #9A5524;
+  --accent-soft: #F3E6D7;
+  --part: #F0E3D2;
+  --part-deep: #DFC4A2;
+  --wood: #D9A877;
+  --wood-deep: #B57D4B;
+  --wood-dark: #8C5A31;
+  --nickel: #B3BABF;
+  --grid: rgba(27, 31, 28, 0.07);
+  --ok: #2E7D4F;
+  --ok-soft: #E3F1E8;
+  --warn-bg: #FFF3DD;
+  --warn-fg: #6E4200;
+  --font-display: "Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121513; --surface: #1A1E1C; --surface-2: #161A18; --ink: #E6EAE7; --muted: #9BA49E; --line: #2D3430;
+    --accent: #DE9B62; --accent-soft: #392A1D; --part: #3A2E23; --part-deep: #55402C;
+    --wood: #C08B57; --wood-deep: #9E6C3F; --wood-dark: #6E4627; --nickel: #8D969C;
+    --grid: rgba(230, 234, 231, 0.07); --ok: #5CC08A; --ok-soft: #183325; --warn-bg: #382910; --warn-fg: #F3C77C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121513; --surface: #1A1E1C; --surface-2: #161A18; --ink: #E6EAE7; --muted: #9BA49E; --line: #2D3430;
+  --accent: #DE9B62; --accent-soft: #392A1D; --part: #3A2E23; --part-deep: #55402C;
+  --wood: #C08B57; --wood-deep: #9E6C3F; --wood-dark: #6E4627; --nickel: #8D969C;
+  --grid: rgba(230, 234, 231, 0.07); --ok: #5CC08A; --ok-soft: #183325; --warn-bg: #382910; --warn-fg: #F3C77C;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg);
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+strong { font-weight: 600; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.15em; }
+li + li { margin-top: 0.3em; }
+.num, .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Hero */
+.hero .wrap { padding-block: 44px 28px; display: grid; grid-template-columns: minmax(0, 1fr) 170px; gap: 40px; align-items: start; }
+.eyebrow { font: 500 12.5px/1.4 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.hero h1 { font-size: clamp(2.2rem, 5.2vw, 3.4rem); font-weight: 700; letter-spacing: -0.02em; margin-top: 10px; }
+.lead { font-size: 1.125rem; line-height: 1.55; max-width: 62ch; margin-top: 14px; }
+.specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin: 24px 0 0; border-top: 1px solid var(--line); }
+.specs div { padding: 10px 14px 10px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.specs dt { font: 500 11.5px/1.3 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.specs dd { margin: 2px 0 0; font-weight: 600; }
+.hero-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.note { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; font-size: 0.95rem; min-width: 0; }
+.note strong:first-child { display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 4px; }
+.hero-art { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 10px 10px; }
+.hero-art svg { display: block; width: 100%; height: auto; }
+.hero-art p { font: 400 11.5px/1.35 var(--font-mono); color: var(--muted); text-align: center; margin-top: 6px; }
+
+/* Sticky nav */
+.toc { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
+.toc .wrap { display: flex; align-items: center; gap: 16px; padding-block: 10px; }
+.toc nav { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; min-width: 0; flex: 1; }
+.toc nav::-webkit-scrollbar { display: none; }
+.toc nav a { color: var(--ink); text-decoration: none; font-size: 0.9rem; font-weight: 500; padding: 6px 10px; border-radius: 6px; white-space: nowrap; }
+.toc nav a:hover { background: var(--surface); }
+.prog { display: flex; align-items: center; gap: 10px; font: 500 12.5px/1 var(--font-mono); color: var(--muted); white-space: nowrap; }
+.prog-bar { --p: 0%; width: 72px; height: 6px; border-radius: 3px; background: var(--line); position: relative; overflow: hidden; }
+.prog-bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--p); background: var(--ok); border-radius: 3px; transition: width .25s ease; }
+
+/* Sections */
+main section { padding-block: 44px 8px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); font-weight: 700; letter-spacing: -0.01em; }
+.sec-head .aside { font: 400 13px/1.4 var(--font-mono); color: var(--muted); }
+.intro { max-width: 68ch; margin-bottom: 18px; }
+
+/* Drawing */
+.dwg-wide { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; }
+.dwg-wide svg { display: block; width: 100%; min-width: 760px; height: auto; }
+.scroll-hint { display: none; color: var(--accent); }
+@media (max-width: 800px) { .scroll-hint { display: inline; } }
+figure { margin: 0; }
+figcaption { font-size: 0.875rem; color: var(--muted); margin-top: 8px; max-width: 70ch; }
+.dwg-cards { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 16px; }
+.dwg-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px 12px; min-width: 0; }
+.dwg-card svg { display: block; width: 100%; height: auto; }
+.dwg-card figcaption { margin-top: 4px; font-size: 0.82rem; }
+.dwg-card figcaption b { color: var(--ink); font-family: var(--font-mono); font-weight: 500; }
+
+.dwg text { font-family: var(--font-mono); font-size: 12px; fill: var(--muted); }
+.dwg .dim { fill: var(--ink); font-weight: 500; }
+.dwg .ttl { font-family: var(--font-display); font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; fill: var(--ink); }
+.dwg .in-t { fill: var(--ink); font-size: 11.5px; }
+.dwg .halo { paint-order: stroke; stroke: var(--part); stroke-width: 5px; stroke-linejoin: round; }
+.dwg .part { fill: var(--part); stroke: var(--ink); }
+.dwg .hollow-fill { fill: var(--part-deep); }
+.dwg .thin, .dwg .hid { fill: none; stroke: var(--ink); }
+.dwg .ctr { fill: none; stroke: var(--muted); }
+.dwg .mag { fill: var(--nickel); stroke: var(--ink); }
+.dwg .cut { fill: var(--surface); }
+.dwg .ghost { opacity: 0.6; }
+.dwg .tape { fill: var(--accent); opacity: 0.7; }
+.dwg .groove-fill { fill: var(--part-deep); }
+.dwg .dl, .dwg .ext, .dwg .lead { fill: none; stroke: var(--muted); stroke-width: 1; }
+.dwg .ext { stroke-width: 0.75; }
+.dwg .tick { fill: none; stroke: var(--ink); stroke-width: 1.3; }
+.dwg .gridln { fill: none; stroke: var(--grid); stroke-width: 1; }
+.dwg .hatchln { stroke: var(--muted); stroke-width: 1; }
+.dwg .wall-line { stroke: var(--ink); stroke-width: 1.2; }
+.k16 .ol { stroke-width: 0.95; } .k16 .thin { stroke-width: 0.55; } .k16 .hid { stroke-width: 0.6; stroke-dasharray: 2.5 1.6; } .k16 .ctr { stroke-width: 0.4; stroke-dasharray: 9 1.6 1.6 1.6; } .k16 .mag { stroke-width: 0.45; }
+.k3 .ol { stroke-width: 0.5; } .k3 .thin { stroke-width: 0.3; } .k3 .hid { stroke-width: 0.35; stroke-dasharray: 1.4 0.9; } .k3 .ctr { stroke-width: 0.22; stroke-dasharray: 5 0.9 0.9 0.9; } .k3 .mag { stroke-width: 0.28; }
+.k4 .ol { stroke-width: 0.38; } .k4 .ctr { stroke-width: 0.17; stroke-dasharray: 4 0.7 0.7 0.7; }
+
+/* Hero art */
+.h-body { fill: var(--wood); }
+.h-hollow { fill: var(--wood-deep); }
+.h-mount { fill: var(--wood-dark); }
+.h-shadow { fill: var(--ink); opacity: 0.08; }
+
+/* BOM table */
+.bom-wrap { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+table.bom { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+.bom th { text-align: left; font: 500 11.5px/1.3 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding: 12px 12px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+.bom td { padding: 12px 12px; border-bottom: 1px solid var(--line); vertical-align: top; min-width: 0; }
+.bom tr:last-child td { border-bottom: 0; }
+.bom .c-check { width: 40px; padding-right: 0; }
+.bom .c-qty { white-space: nowrap; width: 12%; }
+.bom .c-where { width: 34%; }
+.bom .c-price { white-space: nowrap; text-align: right; width: 12%; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.bom .sub { display: block; color: var(--muted); font-size: 0.86rem; margin-top: 2px; }
+.bom tr.is-done td:not(.c-check) { opacity: 0.5; }
+.bom tr.is-done .item-name { text-decoration: line-through; }
+.bom-sum { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 12px; background: var(--surface-2); border-top: 1px solid var(--line); font-size: 0.94rem; }
+.bom-sum b { font-family: var(--font-mono); font-weight: 500; }
+input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--ok); margin: 2px 0 0; cursor: pointer; }
+
+/* Tools */
+.tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.tool-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 16px 18px; min-width: 0; }
+.tool-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.tool-card .k { font: 400 12.5px/1.4 var(--font-mono); color: var(--muted); margin-bottom: 10px; }
+.tool-card ul { font-size: 0.93rem; }
+.tool-card li::marker { color: var(--muted); }
+.price { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 0.88em; white-space: nowrap; }
+.shop { color: var(--muted); font-size: 0.86em; }
+
+/* Timeline */
+.plan { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); margin-bottom: 28px; }
+.plan div { padding: 12px 14px; border-right: 1px solid var(--line); min-width: 0; }
+.plan div:last-child { border-right: 0; }
+.plan b { display: block; font: 500 12px/1.3 var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); }
+.plan span { font-size: 0.92rem; }
+
+/* Steps */
+.phase { display: flex; align-items: baseline; gap: 12px; margin: 34px 0 6px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.phase:first-of-type { margin-top: 8px; }
+.phase .rng { font: 500 13px/1 var(--font-mono); color: var(--accent); white-space: nowrap; }
+.phase h3 { font-size: 1.3rem; font-weight: 700; }
+.step { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-bottom: 1px dashed var(--line); }
+.step:last-child { border-bottom: 0; }
+.badge { width: 44px; height: 44px; border-radius: 9px; border: 1.5px solid var(--accent); color: var(--accent); display: grid; place-items: center; font: 500 1rem/1 var(--font-mono); background: var(--surface); }
+.step.is-done .badge { background: var(--ok); border-color: var(--ok); color: var(--surface); }
+.step h4 { font-size: 1.18rem; font-weight: 600; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
+.chip { font: 500 12px/1 var(--font-mono); padding: 5px 8px; border-radius: 6px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); white-space: nowrap; }
+.step-body { min-width: 0; max-width: 72ch; }
+.step-body ul { margin-top: 4px; }
+.buy { margin-top: 10px; font-size: 0.92rem; }
+.buy b { font: 500 11.5px/1 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+.warn { margin-top: 10px; background: var(--warn-bg); color: var(--warn-fg); border-radius: 8px; padding: 10px 12px; font-size: 0.92rem; }
+.warn strong { color: var(--warn-fg); }
+.tip { margin-top: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 0.92rem; }
+.colors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px; margin-top: 6px; font-size: 0.92rem; }
+.colors div { display: flex; gap: 8px; align-items: baseline; min-width: 0; }
+.sw { width: 12px; height: 12px; border-radius: 3px; flex: none; transform: translateY(1px); border: 1px solid var(--line); }
+.done-l { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 0.9rem; color: var(--muted); cursor: pointer; user-select: none; }
+.done-l input { margin: 0; }
+
+/* Safety + sources */
+.safety { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 0; }
+.safety li { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; font-size: 0.94rem; min-width: 0; }
+.sources { columns: 2; column-gap: 32px; font-size: 0.92rem; }
+.sources li { break-inside: avoid; }
+footer .wrap { padding-block: 32px 48px; font-size: 0.86rem; color: var(--muted); }
+
+@media (max-width: 860px) {
+  .dwg-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tools { grid-template-columns: minmax(0, 1fr); }
+  .hero .wrap { grid-template-columns: minmax(0, 1fr) 130px; gap: 24px; }
+}
+@media (max-width: 680px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); padding-block: 28px 20px; }
+  .hero-art { display: none; }
+  .specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero-notes { grid-template-columns: minmax(0, 1fr); }
+  .plan { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan div:nth-child(2) { border-right: 0; }
+  .plan div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .safety { grid-template-columns: minmax(0, 1fr); }
+  .sources { columns: 1; }
+  .prog-bar { display: none; }
+  .step { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  .badge { width: 36px; height: 36px; font-size: 0.9rem; }
+  .colors { grid-template-columns: minmax(0, 1fr); }
+  /* BOM table as cards */
+  .bom-wrap { background: transparent; border: 0; border-radius: 0; overflow: visible; }
+  table.bom, .bom tbody { display: block; }
+  .bom thead { display: none; }
+  .bom tr { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 6px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+  .bom td { display: block; padding: 0; border: 0; width: auto !important; text-align: left !important; }
+  .bom td.c-check { grid-row: 1 / span 4; }
+  .bom td[data-l]::before { content: attr(data-l); display: block; font: 500 10.5px/1.4 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .bom-sum { border: 1px solid var(--line); border-radius: 10px; }
+}
+@media (max-width: 520px) {
+  .dwg-cards { grid-template-columns: minmax(0, 1fr); }
+  .dwg-card svg { max-width: 340px; margin: 0 auto; }
+}
+@media (max-width: 420px) {
+  .specs { grid-template-columns: minmax(0, 1fr); }
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Gamybos planas · Lietuva · kainos tikrintos 2026-11-22</p>
+      <h1>Magnetinis batų šaukštas</h1>
+      <p class="lead">Ilgas buko šaukštas ir jo magnetinis laikiklis ant sienos, kaip <a href="https://aeska.co/products/magnetic-shoehorn">AESKA Magnetic Shoehorn</a>, tik pasidarytas savo rankomis. Čia rasite brėžinį, pirkinių sąrašą su Lietuvos parduotuvėmis ir kainomis, įrankius ir 24 žingsnius nuo lentos iki sienos.</p>
+      <dl class="specs">
+        <div><dt>Ilgis</dt><dd class="num">530 mm</dd></div>
+        <div><dt>Mediena</dt><dd>Bukas, 8–10 % drėgnio</dd></div>
+        <div><dt>Rankena</dt><dd class="num">Ø28 mm</dd></div>
+        <div><dt>Magnetai</dt><dd>Ø10 mm neodimis, 2 lizdai</dd></div>
+        <div><dt>Laikiklis</dt><dd class="num">50 × 45 × 24 mm</dd></div>
+        <div><dt>Laikas</dt><dd>2 savaitgaliai su džiūvimu</dd></div>
+      </dl>
+      <div class="hero-notes">
+        <div class="note"><strong>Ar apsimoka?</strong>Pirmo komplekto medžiagos kainuos apie 55–75 €, t. y. daugiau nei originalas akcijos metu (41,95 €, įprastai 60,95 €), o įrankiai dar atskirai. Juostos, klijų ir apdailos užtenka 5–10 komplektų, todėl kiekvienas kitas kainuoja apie 10–15 €. Darykite 2–4 iš karto.</div>
+        <div class="note"><strong>Iš kur matmenys</strong>Gamintojas skelbia tik ilgį (53 cm), medieną (100 % bukas) ir tvirtinimą (magnetas, dvipusė juosta). Visi kiti matmenys atkurti iš gamintojo nuotraukų, todėl drąsiai juos koreguokite pagal save.</div>
+      </div>
+    </div>
+    <figure class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 140 316">
+        <g transform="translate(70 10) scale(0.56)">
+          <rect class="h-shadow" x="-19" y="125" width="50" height="45" rx="3"/>
+          <path class="h-shadow" transform="translate(7 9)" d="M-14,14 L-14,310 C-14,335 -17,340 -17,360 L-19,515 C-19,526 -10,530 0,530 C10,530 19,526 19,515 L17,360 C17,340 14,335 14,310 L14,14 A14,14 0 0 0 -14,14 Z"/>
+          <rect class="h-mount" x="-25" y="117.5" width="50" height="45" rx="3"/>
+          <path class="h-body" d="M-14,14 L-14,310 C-14,335 -17,340 -17,360 L-19,515 C-19,526 -10,530 0,530 C10,530 19,526 19,515 L17,360 C17,340 14,335 14,310 L14,14 A14,14 0 0 0 -14,14 Z"/>
+          <path class="h-hollow" d="M-15,522 L-13,362 C-12.5,352 -10.5,348 -10,342 C-9.5,334 -5,330 0,330 C5,330 9.5,334 10,342 C10.5,348 12.5,352 13,362 L15,522 C12,525.5 6,527 0,527 C-6,527 -12,525.5 -15,522 Z"/>
+        </g>
+      </svg>
+      <p>53 cm · bukas</p>
+    </figure>
+  </div>
+</header>
+
+<div class="toc">
+  <div class="wrap">
+    <nav aria-label="Turinys">
+      <a href="#brezinys">Brėžinys</a>
+      <a href="#pirkiniai">Pirkiniai</a>
+      <a href="#irankiai">Įrankiai</a>
+      <a href="#zingsniai">Žingsniai</a>
+      <a href="#sauga">Sauga</a>
+      <a href="#saltiniai">Šaltiniai</a>
+    </nav>
+    <div class="prog" aria-live="polite"><span class="prog-bar" id="prog-bar"></span><span>Atlikta <span id="prog-n">0</span>/24</span></div>
+  </div>
+</div>
+
+<main>
+  <!-- BRĖŽINYS -->
+  <section id="brezinys">
+    <div class="wrap">
+      <div class="sec-head"><h2>Brėžinys</h2><span class="aside">Matmenys mm · tinklelis 10 mm</span></div>
+      <p class="intro">Šaukštas yra vientisas buko gabalas: apvali rankena pereina į įgaubtą mentelę. Rankenos nugaroje, 140 mm nuo viršaus, įleisti magnetai. Laikiklis yra buko trinkelė su loveliu rankenai, jame irgi įleisti magnetai. Rankena įgula į lovelį, magnetai ją prispaudžia, o nuo slydimo žemyn saugo medienos trintis.</p>
+
+      <figure>
+        <div class="dwg-wide">
+          <svg class="dwg" viewBox="0 0 1000 384" role="img" aria-label="Šaukšto brėžinys: vaizdas iš priekio ir iš šono su matmenimis milimetrais">
+            <defs>
+              <pattern id="mm10" width="16" height="16" patternUnits="userSpaceOnUse" x="70" y="9"><path class="gridln" d="M16 0H0V16"/></pattern>
+            </defs>
+            <rect x="0" y="0" width="1000" height="384" fill="url(#mm10)"/>
+
+            <!-- Vaizdas iš priekio -->
+            <text class="ttl" x="70" y="20">Vaizdas iš priekio (įdubos pusė)</text>
+            <path class="ext" d="M70 100V32M918 100V32"/>
+            <path class="dl" d="M70 40H918"/>
+            <path class="tick" d="M66 44l8-8M914 44l8-8"/>
+            <text class="dim" x="494" y="34" text-anchor="middle">530</text>
+
+            <g class="k16" transform="translate(70 105) scale(1.6)">
+              <path class="ctr" d="M-6 0H538"/>
+              <path class="part ol" d="M14,-14 L310,-14 C335,-14 340,-17 360,-17 L515,-19 C526,-19 530,-10 530,0 C530,10 526,19 515,19 L360,17 C340,17 335,14 310,14 L14,14 A14,14 0 0 1 14,-14 Z"/>
+              <path class="hollow-fill" d="M522,-15 L362,-13 C352,-12.5 348,-10.5 342,-10 C334,-9.5 330,-5 330,0 C330,5 334,9.5 342,10 C348,10.5 352,12.5 362,13 L522,15 C525.5,12 527,6 527,0 C527,-6 525.5,-12 522,-15 Z"/>
+              <path class="thin" d="M522,-15 L362,-13 C352,-12.5 348,-10.5 342,-10 C334,-9.5 330,-5 330,0 C330,5 334,9.5 342,10 C348,10.5 352,12.5 362,13 L522,15"/>
+              <circle class="hid" cx="140" cy="0" r="5"/>
+            </g>
+            <text class="in-t" x="760" y="109" text-anchor="middle">įduba</text>
+            <path class="lead" d="M298 98L318 68"/>
+            <text x="322" y="66">magnetai Ø10, nugaroje</text>
+            <path class="dl" d="M430 82.6V127.4"/>
+            <path class="tick" d="M426 86.6l8-8M426 131.4l8-8"/>
+            <text class="dim" x="438" y="109">Ø28</text>
+            <path class="ext" d="M898 74.6H952M898 135.4H952"/>
+            <path class="dl" d="M946 74.6V135.4"/>
+            <path class="tick" d="M942 78.6l8-8M942 139.4l8-8"/>
+            <text class="dim" x="954" y="109">38</text>
+            <path class="ext" d="M70 110V192M294 114V166M598 112V192"/>
+            <path class="dl" d="M70 160H294M70 186H598"/>
+            <path class="tick" d="M66 164l8-8M290 164l8-8M66 190l8-8M594 190l8-8"/>
+            <text class="dim" x="182" y="154" text-anchor="middle">140</text>
+            <text class="dim" x="334" y="180" text-anchor="middle">330 · įdubos pradžia</text>
+
+            <!-- Vaizdas iš šono -->
+            <text class="ttl" x="70" y="236">Vaizdas iš šono</text>
+            <g class="k16" transform="translate(70 318) scale(1.6)">
+              <path class="part ol" d="M14,0 L524,0 C528,0 530,-1 530,-3 C530,-6 524,-9 515,-9.5 L380,-13 C350,-15 340,-28 310,-28 L14,-28 A14,14 0 0 0 14,0 Z"/>
+              <path class="hid" d="M330,-26.5 C345,-21 355,-6 380,-4.5 L526,-3.2"/>
+              <rect class="cut" x="135" y="-7" width="10" height="7"/>
+              <rect class="mag" x="135" y="-7" width="10" height="3"/>
+              <rect class="mag" x="135" y="-4" width="10" height="3"/>
+              <path class="thin" d="M135,0 V-7 H145 V0"/>
+            </g>
+            <text x="96" y="264">priekis</text>
+            <text x="96" y="338">nugara, prie sienos</text>
+            <path class="dl" d="M200 273.2V318"/>
+            <path class="tick" d="M196 277.2l8-8M196 322l8-8"/>
+            <text class="dim" x="207" y="300">28</text>
+            <path class="dl" d="M678 297.2V318"/>
+            <path class="tick" d="M674 301.2l8-8M674 322l8-8"/>
+            <text class="dim halo" x="685" y="313">13</text>
+            <path class="ext" d="M896 302.8H936M920 318H936"/>
+            <path class="dl" d="M930 302.8V318"/>
+            <path class="tick" d="M926 306.8l8-8M926 322l8-8"/>
+            <text class="dim" x="938" y="315">9</text>
+            <path class="lead" d="M296 319L308 330"/>
+            <text x="311" y="338">lizdas Ø10 × 7, du magnetai 3 mm</text>
+            <text x="622" y="338">punktyras: įdubos dugnas</text>
+            <path class="ext" d="M70 324V370M566 322V370M918 322V370"/>
+            <path class="dl" d="M70 364H918"/>
+            <path class="tick" d="M66 368l8-8M562 368l8-8M914 368l8-8"/>
+            <text class="dim" x="318" y="358" text-anchor="middle">310 · rankena</text>
+            <text class="dim" x="742" y="358" text-anchor="middle">220 · mentelė</text>
+          </svg>
+        </div>
+        <figcaption><span class="scroll-hint">Brėžinį galima slinkti į šoną. </span>Šaukštas iš priekio ir iš šono. Nugara tiesi per visą ilgį. Ties 330 mm prasideda įduba. Mentelė platėja nuo 28 iki 38 mm, o link galo plonėja iki ~9 mm.</figcaption>
+      </figure>
+
+      <div class="dwg-cards">
+        <figure class="dwg-card">
+          <svg class="dwg" viewBox="0 0 240 190" role="img" aria-label="Skerspjūvis A–A per rankeną ties magnetu">
+            <g class="k3" transform="translate(120 92) scale(3)">
+              <circle class="part ol" r="14"/>
+              <path class="ctr" d="M-17 0H17M0 -17V17"/>
+              <rect class="cut" x="-5" y="7" width="10" height="8"/>
+              <rect class="mag" x="-5" y="7" width="10" height="3"/>
+              <rect class="mag" x="-5" y="10" width="10" height="3"/>
+              <path class="thin" d="M-5 13.08V7H5V13.08"/>
+            </g>
+            <path class="lead" d="M150 62L167 48"/>
+            <text class="dim" x="170" y="46">Ø28</text>
+            <path class="ext" d="M137 113H182M124 134H182"/>
+            <path class="dl" d="M176 113V134"/>
+            <path class="tick" d="M172 117l8-8M172 138l8-8"/>
+            <text class="dim" x="184" y="128">7</text>
+            <text x="120" y="168" text-anchor="middle">↓ link sienos</text>
+          </svg>
+          <figcaption><b>A–A</b> Rankena ties magnetu. Magnetų kraštai lygūs su paviršiumi, centras ~1 mm žemiau viršūnės.</figcaption>
+        </figure>
+
+        <figure class="dwg-card">
+          <svg class="dwg" viewBox="0 0 240 190" role="img" aria-label="Skerspjūvis B–B per mentelę">
+            <g class="k4" transform="translate(120 124) scale(4)">
+              <path class="ctr" d="M0 -14V3"/>
+              <path class="part ol" d="M-18.5,-10 C-17.5,-3 -9,0 0,0 C9,0 17.5,-3 18.5,-10 C18.5,-10.7 18.1,-11 17.5,-11 L15,-11 C13.5,-6.5 8,-4.5 0,-4.5 C-8,-4.5 -13.5,-6.5 -15,-11 L-17.5,-11 C-18.1,-11 -18.5,-10.7 -18.5,-10 Z"/>
+            </g>
+            <path class="ext" d="M46 82V52M194 82V52"/>
+            <path class="dl" d="M46 58H194"/>
+            <path class="tick" d="M42 62l8-8M190 62l8-8"/>
+            <text class="dim" x="120" y="51" text-anchor="middle">36–38</text>
+            <text class="in-t" x="120" y="99" text-anchor="middle">įduba ≈ 6</text>
+            <path class="lead" d="M124 116L148 142"/>
+            <text x="150" y="152">sienelė 4–5</text>
+            <text x="120" y="176" text-anchor="middle">↓ link sienos</text>
+          </svg>
+          <figcaption><b>B–B</b> Mentelė ties 450 mm: lovelio formos, kraštai 3–4 mm.</figcaption>
+        </figure>
+
+        <figure class="dwg-card">
+          <svg class="dwg" viewBox="0 0 260 222" role="img" aria-label="Laikiklis iš viršaus, pjūvis per magnetus, su įgulusia rankena">
+            <defs>
+              <pattern id="hatch-a" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="hatchln" d="M0 0V6"/></pattern>
+            </defs>
+            <rect x="52" y="187" width="160" height="8" fill="url(#hatch-a)"/>
+            <path class="wall-line" d="M52 187H212"/>
+            <g class="k3" transform="translate(130 112) scale(3)">
+              <path class="part ol" d="M-25,0 L-12.36,0 A15,15 0 0 0 12.36,0 L25,0 L25,24 L-25,24 Z"/>
+              <rect class="cut" x="-5" y="5.6" width="10" height="7.1"/>
+              <rect class="mag" x="-5" y="6.7" width="10" height="3"/>
+              <rect class="mag" x="-5" y="9.7" width="10" height="3"/>
+              <path class="thin" d="M-5,5.64 V12.7 H5 V5.64"/>
+              <circle class="hid" cx="0" cy="-7.5" r="14"/>
+              <g class="ghost">
+                <rect class="mag" x="-5" y="-0.5" width="10" height="3"/>
+                <rect class="mag" x="-5" y="2.5" width="10" height="3"/>
+              </g>
+              <rect class="tape" x="-25" y="24" width="50" height="1"/>
+            </g>
+            <path class="lead" d="M160 60L174 54"/>
+            <text x="177" y="56">rankena Ø28</text>
+            <text class="dim" x="153" y="142">R15</text>
+            <text x="6" y="186">juosta</text>
+            <text x="6" y="200">siena</text>
+            <path class="ext" d="M207 112H228M207 184H228"/>
+            <path class="dl" d="M222 112V184"/>
+            <path class="tick" d="M218 116l8-8M218 188l8-8"/>
+            <text class="dim" x="228" y="152">24</text>
+            <path class="ext" d="M55 188V216M205 188V216"/>
+            <path class="dl" d="M55 212H205"/>
+            <path class="tick" d="M51 216l8-8M201 216l8-8"/>
+            <text class="dim" x="130" y="207" text-anchor="middle">50</text>
+          </svg>
+          <figcaption><b>Laikiklis iš viršaus</b> Lovelis R15, gylis 6,5. Rankena įgula su ~1 mm tarpu šonuose; tarp magnetų ~1 mm, liečiasi mediena.</figcaption>
+        </figure>
+
+        <figure class="dwg-card">
+          <svg class="dwg" viewBox="0 0 230 210" role="img" aria-label="Laikiklis iš priekio">
+            <text x="108" y="24" text-anchor="middle">lovelis per visą aukštį</text>
+            <g class="k3" transform="translate(108 100) scale(3)">
+              <rect class="part ol" x="-25" y="-22.5" width="50" height="45" rx="2"/>
+              <rect class="groove-fill" x="-12.36" y="-22.5" width="24.72" height="45"/>
+              <path class="thin" d="M-12.36,-22.5V22.5M12.36,-22.5V22.5"/>
+              <rect class="part ol" x="-25" y="-22.5" width="50" height="45" rx="2" style="fill:none"/>
+              <path class="ctr" d="M0,-26V26M-28,0H28"/>
+              <circle class="mag" r="5"/>
+            </g>
+            <text class="dim" x="127" y="96">Ø10</text>
+            <path class="ext" d="M33 170V190M183 170V190M186 32.5H204M186 167.5H204"/>
+            <path class="dl" d="M33 184H183M198 32.5V167.5"/>
+            <path class="tick" d="M29 188l8-8M179 188l8-8M194 36.5l8-8M194 171.5l8-8"/>
+            <text class="dim" x="108" y="202" text-anchor="middle">50</text>
+            <text class="dim" x="204" y="104">45</text>
+          </svg>
+          <figcaption><b>Laikiklis iš priekio</b> Pluoštas vertikalus, magnetas lovelio centre, 22,5 mm nuo viršaus.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIRKINIAI -->
+  <section id="pirkiniai">
+    <div class="wrap">
+      <div class="sec-head"><h2>Pirkinių sąrašas</h2><span class="aside">Nupirkta <span id="buy-n">0</span>/10</span></div>
+      <p class="intro">Kiekiai vienam komplektui. Kainos su PVM, tikrintos 2026-11-22 parduotuvių svetainėse; prieš važiuodami patikrinkite likutį.</p>
+      <div class="bom-wrap">
+        <table class="bom">
+          <thead><tr><th class="c-check"><span class="mono">✓</span></th><th>Ką pirkti</th><th class="c-qty">Kiek</th><th class="c-where">Kur</th><th class="c-price">Kaina</th></tr></thead>
+          <tbody>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b1" data-k="b1" aria-label="Buko mediena nupirkta"></td>
+              <td><span class="item-name"><strong>Buko mediena</strong></span><span class="sub">Džiovinta, tiesus pluoštas, be šakų. Komplektui 560 × 42 × 29 mm šaukštui ir 60 × 50 × 26 mm laikikliui. Ekonomiškiausia 32–50 mm storio ~1 m lenta: išeis 3–4 komplektai.</span></td>
+              <td class="c-qty" data-l="Kiek">1 lenta</td>
+              <td class="c-where" data-l="Kur"><a href="https://www.medis.lt/skelbimas/azuolo-buko-riesuto-ir-kita-dziovinta-mediena-lietuvoje-16853">Lapuočių sandėlis Vilniaus r.</a> (medis.lt: bukas 26, 32, 50 mm) · <a href="https://www.skelbiu.lt/paieska/buko-lentos/">Skelbiu.lt</a> · <a href="https://paslaugos.lt/staliai/vilniuje">staliai</a> (atraižos)</td>
+              <td class="c-price" data-l="Kaina">~5–20 €</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b2" data-k="b2" aria-label="Magnetai nupirkti"></td>
+              <td><span class="item-name"><strong>Neodimio magnetai</strong></span><span class="sub">A: Ø10 × 3 mm N42, laiko ~1,8 kg, po 2 į lizdą. B: Ø10 × 5 mm N52, laiko ~3,3 kg, po 1 į lizdą.</span></td>
+              <td class="c-qty" data-l="Kiek">A: 4–5 vnt.<br>B: 5 vnt. pak.</td>
+              <td class="c-where" data-l="Kur">A: <a href="https://www.lemona.lt/en/disc-magnet-o10x3mm-ndfeb-n42.html">Lemona</a> (Vilniaus, Kauno, Klaipėdos, Šiaulių parduotuvės) · B: <a href="https://www.supermagnete.lt/diskiniai-magnetai-neodimio/diskinis-magnetas-10mm-5mm_S-10-05-N52N">supermagnete.lt</a> (min. užsakymas 20 €)</td>
+              <td class="c-price" data-l="Kaina">A: 1,12 €/vnt.<br>B: 4,65 €</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b3" data-k="b3" aria-label="Epoksidiniai klijai nupirkti"></td>
+              <td><span class="item-name"><strong>Epoksidiniai klijai</strong></span><span class="sub">Pattex Epoxy 5 min, 11 ml. Tinka ir Akfix E340, 25 ml (5,39 €).</span></td>
+              <td class="c-qty" data-l="Kiek">1</td>
+              <td class="c-where" data-l="Kur"><a href="https://www.ermitazas.lt/p/epoksidiniai-klijai-pattex-epoxy-5min-11ml-ajf3rhaz">Ermitažas</a></td>
+              <td class="c-price" data-l="Kaina">6,49 €</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b4" data-k="b4" aria-label="Dvipusė juosta nupirkta"></td>
+              <td><span class="item-name"><strong>Dvipusė montažinė juosta</strong></span><span class="sub">tesa Powerbond, 19 mm pločio, putplasčio pagrindu. Laikikliui reikia ~8 cm.</span></td>
+              <td class="c-qty" data-l="Kiek">1 ritinėlis</td>
+              <td class="c-where" data-l="Kur"><a href="https://www.senukai.lt/p/dvipuse-lipni-juosta-tesa-powerbond-dvipuse-5-m-x-19-mm-x-1140/znxh">Senukai</a> · <a href="https://www.senukai.lt/paieska?q=tesa%20powerbond">kiti ilgiai</a></td>
+              <td class="c-price" data-l="Kaina">18,49 € / 5 m</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b5" data-k="b5" aria-label="Spalvotas aliejus nupirktas"></td>
+              <td><span class="item-name"><strong>Spalvotas aliejus su vašku</strong></span><span class="sub">Osmo Hardwax Tints, 5 ml mėginys pagal spalvą (žr. 5 žingsnį).</span></td>
+              <td class="c-qty" data-l="Kiek">2 vnt.</td>
+              <td class="c-where" data-l="Kur">Ermitažas: <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3071-medaus-sp-5-ml-np7ms56h">3071</a> · <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3072-gintarines-sp-5-ml-sgte6efk">3072</a> · <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3073-zemes-sp-5-ml-hltvaesv">3073</a> · <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3075-juodos-sp-5-ml-tv7cvacj">3075</a></td>
+              <td class="c-price" data-l="Kaina">1,99 €/vnt.</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b6" data-k="b6" aria-label="Bespalvis aliejus nupirktas"></td>
+              <td><span class="item-name"><strong>Bespalvis aliejus su vašku</strong></span><span class="sub">Osmo Hardwax Original 3062, matinis, 5 ml. Antram sluoksniui ir priežiūrai.</span></td>
+              <td class="c-qty" data-l="Kiek">1–2 vnt.</td>
+              <td class="c-where" data-l="Kur"><a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-original-3062-bespalvis-matinis-5-ml-hk4tz7ap">Ermitažas</a></td>
+              <td class="c-price" data-l="Kaina">1,99 €/vnt.</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b7" data-k="b7" aria-label="Šlifavimo popierius nupirktas"></td>
+              <td><span class="item-name"><strong>Šlifavimo popierius</strong></span><span class="sub">P80, P120, P180, P240.</span></td>
+              <td class="c-qty" data-l="Kiek">po 2 lapus</td>
+              <td class="c-where" data-l="Kur"><a href="https://www.senukai.lt/paieska?q=%C5%A1lifavimo%20popierius">Senukai</a></td>
+              <td class="c-price" data-l="Kaina">~5 €</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b8" data-k="b8" aria-label="Izopropilo alkoholis nupirktas"></td>
+              <td><span class="item-name"><strong>Izopropilo alkoholis</strong></span><span class="sub">Sienai, lizdams ir magnetams nuriebalinti.</span></td>
+              <td class="c-qty" data-l="Kiek">1</td>
+              <td class="c-where" data-l="Kur">Vaistinė arba elektronikos detalių parduotuvė</td>
+              <td class="c-price" data-l="Kaina">~3–5 €</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b9" data-k="b9" aria-label="Smulkmenos nupirktos"></td>
+              <td><span class="item-name"><strong>Smulkmenos</strong></span><span class="sub">Dažymo juostelė, medvilniniai skudurai, nitrilo pirštinės, permanentinis markeris, kartonas šablonams.</span></td>
+              <td class="c-qty" data-l="Kiek">–</td>
+              <td class="c-where" data-l="Kur">Bet kuri statybinių prekių parduotuvė</td>
+              <td class="c-price" data-l="Kaina">~5 €</td>
+            </tr>
+            <tr data-row>
+              <td class="c-check"><input type="checkbox" id="b10" data-k="b10" aria-label="Saugos priemonės nupirktos"></td>
+              <td><span class="item-name"><strong>Saugos priemonės</strong></span><span class="sub">FFP2 respiratorius su vožtuvu, apsauginiai akiniai.</span></td>
+              <td class="c-qty" data-l="Kiek">1 + 1</td>
+              <td class="c-where" data-l="Kur"><a href="https://www.senukai.lt/p/respiratorius-su-voztuvu-vic821v-ffp2-balta-sp/3gc3">Senukai</a></td>
+              <td class="c-price" data-l="Kaina">nuo 1,99 €</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="bom-sum"><span>Pirmas komplektas: <b>~55–75 €</b></span><span>Kiekvienas kitas: <b>~10–15 €</b> (mediena, magnetai, Osmo mėginiai)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ĮRANKIAI -->
+  <section id="irankiai">
+    <div class="wrap">
+      <div class="sec-head"><h2>Įrankiai</h2><span class="aside">Pirmo stulpelio užtenka viskam padaryti rankomis</span></div>
+      <div class="tools">
+        <div class="tool-card">
+          <h3>Būtini</h3>
+          <p class="k">Rankomis · ~100–150 €, jei perkate viską</p>
+          <ul>
+            <li>Pjūklas: <a href="https://www.senukai.lt/p/rankinis-pjuklas-yato-yt-31310-mediena-plastikas-320-mm-660-mm/11cr8">Yato</a> <span class="price">8,72 €</span> arba japoniškas <a href="https://www.senukai.lt/p/pjuklas-samurai-js-240-lh-240-mm/13pef">Samurai JS-240</a> <span class="price">30,29 €</span> <span class="shop">Senukai</span></li>
+            <li>Medžio dildės Haushalt: <a href="https://www.senukai.lt/p/dilde-haushalt-plokscia-150-mm-mediena/ipaq">plokščia</a> <span class="price">1,39 €</span>, <a href="https://www.senukai.lt/p/dilde-haushalt-pusiau-apvali-250-mm-mediena/ipap">pusiau apvali</a> <span class="price">4,89 €</span>, <a href="https://www.senukai.lt/p/dilde-haushalt-apvali-250-mm-mediena/ipal">apvali</a> <span class="price">3,89 €</span> <span class="shop">Senukai</span></li>
+            <li>Įdubai: <a href="https://www.senukai.lt/p/lenktas-kaltas-pusapvale-messerschmidt-skm-1205-26-cm-3-cm/zzx5">lenktas pusapvalis kaltas Messerschmidt, 3 cm</a> <span class="price">41,90 €</span> <span class="shop">Senukai</span>, arba <a href="https://www.knivesandtools.com/en/pt/-morakniv-hook-knife-164-spoon-knife-right-handed-with-sheath.htm">lenktas peilis Morakniv 164</a> <span class="price">~42 €</span> <span class="shop">Knivesandtools</span></li>
+            <li>2 spaustuvai <a href="https://www.senukai.lt/p/spaustuvas-toya-f-wood-37250-plienas-mediena-ketus-25-cm-x-5-cm/15osg">Toya F-Wood 25 cm</a> <span class="price">4,39 €/vnt.</span></li>
+            <li>Gręžtuvas ir <a href="https://www.senukai.lt/paieska?q=med%C5%BEio%20gr%C4%85%C5%BEtas%2010%20mm">Ø10 mm medžio grąžtas</a> su centravimo smaigaliu</li>
+            <li><a href="https://www.senukai.lt/paieska?q=slankmatis">Slankmatis</a> sienelės storiui ir lizdų gyliui</li>
+            <li>Kampainis, liniuotė, skriestuvas, peiliukas, pieštukas</li>
+            <li><a href="https://www.senukai.lt/p/respiratorius-su-voztuvu-vic821v-ffp2-balta-sp/3gc3">FFP2 respiratorius</a> <span class="price">1,99 €</span>, akiniai</li>
+          </ul>
+        </div>
+        <div class="tool-card">
+          <h3>Pagreitina darbą</h3>
+          <p class="k">Nebūtina · sutaupo 4–6 val.</p>
+          <ul>
+            <li>Siaurapjūklis su geležtėmis kreivėms arba juostinis pjūklas</li>
+            <li><a href="https://www.senukai.lt/p/lapelinis-slifavimo-cilindras-yat-yt-83396-60-mm/15acb">Lapelinis šlifavimo cilindras YATO Ø60</a> <span class="price">3,89 €</span> gręžtuvui, įdubai <span class="shop">Senukai</span></li>
+            <li>Gręžimo staklės ir <a href="https://www.ermitazas.lt/p/medzio-freza-specialist-forstner-30-x-90-mm-tjkd2s7t">Forstner Ø30 × 90 mm</a> <span class="price">6,09 €</span> laikiklio loveliui <span class="shop">Ermitažas</span></li>
+            <li>Frezeris su <a href="https://www.senukai.lt/paieska?q=apvalinimo%20freza">apvalinimo freza</a> R12–R14 rankenai</li>
+            <li>Ekscentrinis šlifuoklis</li>
+            <li><a href="https://www.senukai.lt/p/rinkinys-medziui-deginti-pebaro-0269-12-w/2it1">Medžio deginimo rinkinys Pebaro 0269</a> <span class="price">18,50 €</span> savo ženklui</li>
+          </ul>
+        </div>
+        <div class="tool-card">
+          <h3>Neturite dirbtuvių?</h3>
+          <p class="k">Vieta, staklės, paslaugos</p>
+          <ul>
+            <li><a href="https://makerspace.lt/">Kaunas Makerspace</a>: atviros dirbtuvės, Raudondvario pl. 86A, Kaunas.</li>
+            <li><a href="https://www.lnb.lt/en/spaces/creative-and-leisure-spaces/pats-sau-workshop">LNB „Pats sau“ dirbtuvės</a>: Nacionalinė biblioteka, Gedimino pr. 51, Vilnius. Yra lazerinis pjoviklis, vietą rezervuokite telefonu.</li>
+            <li><a href="https://vilniustech.lt/en/linkmenu-fabrikas/services/laser-cutting-and-engraving/">VILNIUS TECH „LinkMenų fabrikas“</a>: lazerinis graviravimas verslui, min. 20 € + PVM, failai DXF.</li>
+            <li><a href="https://paslaugos.lt/staliai/vilniuje">Staliai Vilniuje</a>: išpjaus ruošinius arba visą formą pagal jūsų šabloną.</li>
+            <li><a href="https://paslaugos.lt/irankiu-nuoma/vilniuje">Įrankių nuoma Vilniuje</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ŽINGSNIAI -->
+  <section id="zingsniai">
+    <div class="wrap">
+      <div class="sec-head"><h2>Žingsniai</h2><span class="aside">Pažymėkite atliktus, progresas viršuje</span></div>
+
+      <div class="plan">
+        <div><b>Diena 0</b><span>Užsakykite magnetus, suraskite medieną (3–5)</span></div>
+        <div><b>1 savaitgalis</b><span>Šaukštas (7–14)</span></div>
+        <div><b>2 savaitgalis</b><span>Laikiklis, apdaila, magnetai (15–20)</span></div>
+        <div><b>+1 diena</b><span>Montavimas (21–23)</span></div>
+      </div>
+
+      <div class="phase"><span class="rng">1–6</span><h3>Pasiruošimas ir pirkiniai</h3></div>
+
+      <article class="step" id="z1" data-row>
+        <div class="badge">01</div>
+        <div class="step-body">
+          <h4>Pasirinkite būdą, kiekį ir spalvą</h4>
+          <div class="meta"><span class="chip">15 min</span></div>
+          <ul>
+            <li><strong>Rankomis:</strong> pjūklas, dildės, lenktas kaltas. Pirmam šaukštui ~8–10 val.</li>
+            <li><strong>Su elektriniais įrankiais:</strong> siaurapjūklis, šlifavimo cilindras, gręžimo staklės. ~3–4 val.</li>
+            <li><strong>Užsakymu:</strong> stalius ar CNC dirbtuvė išpjauna formą, o jūs šlifuojate, dažote ir klijuojate magnetus.</li>
+            <li>Darykite 2 vienetus vienu metu. Pirmas dažnai būna mokomasis, o medžiagų užteks abiem.</li>
+            <li>Spalvą pasirinkite dabar: nuo jos priklauso, kurį Osmo mėginį pirksite (5 žingsnis).</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s1" data-k="s1"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z2" data-row>
+        <div class="badge">02</div>
+        <div class="step-body">
+          <h4>Nusibraižykite kartoninius šablonus</h4>
+          <div class="meta"><span class="chip">30–45 min</span><span class="chip">kartonas, liniuotė, skriestuvas</span></div>
+          <ul>
+            <li>Pagal <a href="#brezinys">brėžinį</a> 1:1 nubraižykite du šablonus: vaizdą iš priekio (plotis) ir iš šono (storis). Laikikliui pakanka 50 × 45 mm stačiakampio.</li>
+            <li>Viršūnę braižykite skriestuvu (R14), kreives jungkite lanksčia liniuote.</li>
+            <li>Šablone pažymėkite: magneto centrą 140 mm nuo viršaus, rankenos pabaigą ties 310 mm, įdubos pradžią ties 330 mm.</li>
+            <li>Iškirpkite peiliuku. Šablonai pravers ir kitiems vienetams.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s2" data-k="s2"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z3" data-row>
+        <div class="badge">03</div>
+        <div class="step-body">
+          <h4>Nupirkite medieną</h4>
+          <div class="meta"><span class="chip">~5–20 €</span></div>
+          <ul>
+            <li>Reikia džiovinto (8–10 %) buko be šakų ir įtrūkimų, kurio pluoštas eina tiesiai išilgai. Jei pluoštas kerta mentelę įstrižai, ji lūš.</li>
+            <li>Vienam komplektui: 560 × 42 × 29 mm šaukštui ir 60 × 50 × 26 mm laikikliui. Ekonomiškiausia ~1 m ilgio 32–50 mm storio lenta: išeis 3–4 komplektai.</li>
+            <li>Garintas bukas rausvesnis ir vienodesnės spalvos, negarintas gelsvesnis. Po dažymo skirtumas nedidelis.</li>
+            <li>Lapuočių medienos sandėliai dažniausiai prekiauja kubais, todėl paskambinkite ir paklauskite, ar parduos vieną lentą. Laiptų ir baldų staliai atraižas dažnai parduoda už kelis eurus.</li>
+            <li>Jei buko nėra, tinka uosis, klevas arba ąžuolas. Uosis tvirtesnis, bet su ryškesnėmis rievėmis.</li>
+          </ul>
+          <p class="buy"><b>Kur</b><a href="https://www.medis.lt/skelbimas/azuolo-buko-riesuto-ir-kita-dziovinta-mediena-lietuvoje-16853">Lapuočių sandėlis Vilniaus r.</a> (bukas 26/32/50 mm, garintas ir negarintas) · <a href="https://www.skelbiu.lt/paieska/buko-lentos/">Skelbiu.lt „buko lentos“</a> · <a href="https://paslaugos.lt/staliai/vilniuje">staliai Vilniuje</a> · uosis: <a href="https://www.medis.lt/skelbimas/dziovintus-azuolo-ruosinius-50x50x750-2700-mm-a-b-rusis-19044">UAB „Ažuolitos prekyba“</a>, Jonavos r. (ruošiniai 27 × 55 × 600 mm, rankena išeis ~Ø26)</p>
+          <label class="done-l"><input type="checkbox" id="s3" data-k="s3"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z4" data-row>
+        <div class="badge">04</div>
+        <div class="step-body">
+          <h4>Nupirkite magnetus</h4>
+          <div class="meta"><span class="chip">~4,50–5 €</span></div>
+          <ul>
+            <li><strong>A variantas, vietoje dar šiandien:</strong> Lemona Ø10 × 3 mm N42 (laiko ~1,8 kg), 1,12 €/vnt. perkant nuo 2. Pirkite 4 ir 1 atsarginį: į kiekvieną lizdą dėsite po 2, tada jie veikia kaip vienas 6 mm magnetas. Likučiai 2026-11-22: Vilniaus Žirmūnų ir Naujamiesčio, Kauno, Klaipėdos ir Šiaulių parduotuvėse.</li>
+            <li><strong>B variantas, stipriausias:</strong> supermagnete.lt Ø10 × 5 mm N52 (laiko ~3,3 kg), 5 vnt. už 4,65 €. Minimalus užsakymas 20 €, pristatymas 3–6 d. d. iš Vokietijos, todėl apsimoka keliems komplektams.</li>
+            <li>Kodėl reikia atsargos: vertikaliai šaukštą (~200 g) laiko trintis, o ji sudaro tik apie penktadalį magneto sukibimo jėgos.</li>
+            <li>Neaiškios kilmės „N52“ iš pigių prekyviečių dažnai būna silpnesni, nei žadama.</li>
+          </ul>
+          <p class="buy"><b>Kur</b><a href="https://www.lemona.lt/en/disc-magnet-o10x3mm-ndfeb-n42.html">Lemona Ø10 × 3 N42</a> · <a href="https://www.supermagnete.lt/diskiniai-magnetai-neodimio/diskinis-magnetas-10mm-5mm_S-10-05-N52N">supermagnete.lt Ø10 × 5 N52</a> · <a href="https://www.supermagnete.lt/diskiniai-magnetai-neodimio/diskinis-magnetas-10mm-3mm_S-10-03-N52N">supermagnete.lt Ø10 × 3 N52</a> (2,3 kg, 10 vnt. 6,20 €)</p>
+          <label class="done-l"><input type="checkbox" id="s4" data-k="s4"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z5" data-row>
+        <div class="badge">05</div>
+        <div class="step-body">
+          <h4>Nupirkite klijus, juostą, apdailą ir šlifavimo medžiagas</h4>
+          <div class="meta"><span class="chip">~45 €</span></div>
+          <ul>
+            <li><strong>Epoksidiniai klijai</strong> Pattex Epoxy 5 min (6,49 €). Sekundiniai klijai netinka: jie trapūs ir neužpildo tarpų.</li>
+            <li><strong>Juosta</strong> tesa Powerbond 19 mm (18,49 € už 5 m). Originale naudojama plona 3M 9448A audinio juosta, o putplasčio pagrindo juosta geriau prisitaiko prie sienos nelygumų.</li>
+            <li><strong>Apdaila:</strong> Osmo Hardwax Tints 5 ml mėginiai (1,99 €) pagal norimą AESKA spalvą ir Osmo 3062 bespalvis viršutiniam sluoksniui. Vieno 5 ml buteliuko užtenka 1–2 ploniems sluoksniams vienam komplektui, todėl imkite po du.</li>
+          </ul>
+          <div class="colors">
+            <div><span class="sw" style="background:#D6A66C"></span><span><strong>Light Oak</strong>: <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3071-medaus-sp-5-ml-np7ms56h">3071 medaus</a> arba <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3072-gintarines-sp-5-ml-sgte6efk">3072 gintarinė</a></span></div>
+            <div><span class="sw" style="background:#9A5E33"></span><span><strong>Dark Oak</strong>: <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3073-zemes-sp-5-ml-hltvaesv">3073 žemės</a></span></div>
+            <div><span class="sw" style="background:#6B4429"></span><span><strong>Walnut</strong>: 3073 dviem sluoksniais, galima įlašinti šiek tiek 3075</span></div>
+            <div><span class="sw" style="background:#2A2522"></span><span><strong>Black</strong>: <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3075-juodos-sp-5-ml-tv7cvacj">3075 juoda</a></span></div>
+          </div>
+          <ul style="margin-top:10px">
+            <li>Šlifavimo popierius P80, P120, P180, P240, izopropilo alkoholis, dažymo juostelė, medvilniniai skudurai, nitrilo pirštinės.</li>
+          </ul>
+          <p class="buy"><b>Kur</b><a href="https://www.ermitazas.lt/p/epoksidiniai-klijai-pattex-epoxy-5min-11ml-ajf3rhaz">Pattex Epoxy</a> ir <a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-original-3062-bespalvis-matinis-5-ml-hk4tz7ap">Osmo 3062</a> – Ermitažas · <a href="https://www.senukai.lt/p/dvipuse-lipni-juosta-tesa-powerbond-dvipuse-5-m-x-19-mm-x-1140/znxh">tesa Powerbond</a> ir <a href="https://www.senukai.lt/paieska?q=%C5%A1lifavimo%20popierius">šlifavimo popierius</a> – Senukai</p>
+          <label class="done-l"><input type="checkbox" id="s5" data-k="s5"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z6" data-row>
+        <div class="badge">06</div>
+        <div class="step-body">
+          <h4>Paruoškite įrankius ir darbo vietą</h4>
+          <div class="meta"><span class="chip">30 min</span></div>
+          <ul>
+            <li>Įrankių sąrašas yra skyriuje <a href="#irankiai">„Įrankiai“</a>. Minimaliai: pjūklas, dildės, lenktas kaltas, 2 spaustuvai, gręžtuvas, slankmatis.</li>
+            <li>Tvirtas stalas, šoninė šviesa (ji parodo nelygumus) ir dulkių siurblys.</li>
+            <li>Neturite vietos ar įrankių? Kaunas Makerspace, LNB „Pats sau“ dirbtuvės Vilniuje arba stalius.</li>
+          </ul>
+          <p class="warn"><strong>Dulkės.</strong> Kietmedžio, tarp jo ir buko, dulkės priskiriamos kancerogenams. Šlifuodami dėvėkite FFP2 ar FFP3 respiratorių, dulkes siurbkite, nešluokite.</p>
+          <label class="done-l"><input type="checkbox" id="s6" data-k="s6"> Atlikta</label>
+        </div>
+      </article>
+
+      <div class="phase"><span class="rng">7–14</span><h3>Šaukštas</h3></div>
+
+      <article class="step" id="z7" data-row>
+        <div class="badge">07</div>
+        <div class="step-body">
+          <h4>Išpjaukite ir išlyginkite ruošinį</h4>
+          <div class="meta"><span class="chip">30–60 min</span><span class="chip">pjūklas, oblius ar šlifuoklis, kampainis</span></div>
+          <ul>
+            <li>Išpjaukite 560 × 42 × 29 mm ruošinį. Jis 30 mm ilgesnis: galus galutinai suformuosite 14 žingsnyje, o iki tol atsarga saugos juos nuo nuskilimo.</li>
+            <li>Išlyginkite: kampai statūs, storis tolygus.</li>
+            <li>Jei galite rinktis, imkite radialinio pjūvio ruošinį (galuose rievės stačios priekiui): mentelė mažiau persikreips.</li>
+            <li>Pieštuku pažymėkite <strong>PRIEKĮ</strong> (čia bus įduba) ir <strong>NUGARĄ</strong> (čia bus magnetai, ji žiūrės į sieną).</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s7" data-k="s7"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z8" data-row>
+        <div class="badge">08</div>
+        <div class="step-body">
+          <h4>Perkelkite kontūrus</h4>
+          <div class="meta"><span class="chip">20 min</span></div>
+          <ul>
+            <li>Ant priekio apveskite vaizdo iš priekio šabloną, ant šono – šoninio profilio šabloną, abiejuose galuose palikdami po 15 mm. Abiejose plokštumose nubrėžkite centrinę liniją.</li>
+            <li>Pažymėkite magneto centrą nugaroje (140 mm nuo viršaus) ir įdubos pradžią priekyje (330 mm).</li>
+            <li>Pjausite dviem etapais: pirmiau plotį, paskui storį. Po pirmo pjūvio atraižas prilipdykite atgal dažymo juostele: ruošinys vėl gulės lygiai, o antrasis kontūras bus matomas.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s8" data-k="s8"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z9" data-row>
+        <div class="badge">09</div>
+        <div class="step-body">
+          <h4>Išpjaukite plotį (vaizdas iš priekio)</h4>
+          <div class="meta"><span class="chip">20–40 min</span><span class="chip">siaurapjūklis arba pjūklas ir dildė</span></div>
+          <ul>
+            <li>Pjaukite 1 mm už linijos. Rankena 28 mm pločio, mentelė platėja iki 38 mm. Galų atsargą palikite tiesią, ją nupjausite 14 žingsnyje.</li>
+            <li>Siaurapjūkliui naudokite geležtę kreivėms ir lėtą padavimą: 29 mm buke geležtė linksta, todėl palikite atsargą.</li>
+            <li>Be elektrinio pjūklo: nupjaukite tiesiais pjūviais „laipteliais“ ir prie linijos priartėkite dilde.</li>
+            <li>Atraižas prilipdykite atgal (žr. 8 žingsnį).</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s9" data-k="s9"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z10" data-row>
+        <div class="badge">10</div>
+        <div class="step-body">
+          <h4>Išpjaukite storį (vaizdas iš šono)</h4>
+          <div class="meta"><span class="chip">20–40 min</span></div>
+          <ul>
+            <li>Rankena lieka viso storio. Nuo 310 mm priekinė linija leidžiasi iki ~13 mm ties 380 mm ir iki ~9 mm ties galu. Nugara lieka tiesi per visą ilgį.</li>
+            <li>Pjaukite 1 mm už linijos, tada nuimkite atraižas ir juostelę.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s10" data-k="s10"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z11" data-row>
+        <div class="badge">11</div>
+        <div class="step-body">
+          <h4>Išgręžkite magneto lizdą, kol rankena dar kvadratinė</h4>
+          <div class="meta"><span class="chip">20 min</span><span class="chip">gręžtuvas, Ø10 grąžtas, slankmatis</span></div>
+          <ul>
+            <li>Pirmiau dilde ar obliumi išlyginkite rankenos dalį iki 28 × 28 mm kvadrato.</li>
+            <li>Kodėl dabar: į plokščią nugarą gręžti lengva ir tikslu. Apvalinant briaunas, nugaros centrinė linija lieka rankenos viršūne, todėl lizdo gylis nepasikeis.</li>
+            <li>Vieta: nugaroje, 140 mm nuo viršaus, ant centrinės linijos. Įmuškite žymę vinute.</li>
+            <li>Gręžkite Ø10 mm statmenai. Gylis = magnetų aukštis + 1 mm: A variantui (2 × 3 mm) 7 mm, B variantui (5 mm) 6 mm. Gylį matuokite iki grąžto peiliukų, ne iki centravimo smaigalio, ir pažymėkite juostele ant grąžto.</li>
+            <li>Išbandykite: magnetai turi įlįsti laisvai, be jėgos.</li>
+          </ul>
+          <p class="tip"><strong>Kodėl +1 mm.</strong> Apvalios rankenos paviršius ties magneto kraštais yra ~0,9 mm žemiau viršūnės. Taip magneto kraštai liks lygūs su paviršiumi, o prie laikiklio liesis mediena su mediena: magnetai nesibraižys, o trintis bus didesnė.</p>
+          <label class="done-l"><input type="checkbox" id="s11" data-k="s11"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z12" data-row>
+        <div class="badge">12</div>
+        <div class="step-body">
+          <h4>Išskobkite mentelės įdubą</h4>
+          <div class="meta"><span class="chip">1–3 val.</span><span class="chip">lenktas kaltas arba šlifavimo cilindras</span></div>
+          <ul>
+            <li>Pažymėkite įdubos kontūrą: U formos pradžia ties 330 mm, šonuose palikite 4 mm kraštus, prie galo įduba atsiveria.</li>
+            <li>Ruošinį tvirtai suspauskite už kvadratinės rankenos. Todėl įdubą darome prieš apvalinant rankeną.</li>
+            <li><strong>Rankomis:</strong> lenktu pusapvaliu kaltu (20–30 mm) arba lenktu peiliu imkite plonas drožles nuo kraštų link centro, įstrižai pluošto. Jei mediena plėšiasi, pakeiskite kryptį.</li>
+            <li><strong>Su gręžtuvu:</strong> lapelinis šlifavimo cilindras Ø60 mm greitai ir tolygiai išgilina seklią įdubą.</li>
+            <li>Gylis centre ~6 mm, sienelė 4–5 mm. Tikrinkite slankmačiu ir žiūrėdami prieš šviesą.</li>
+            <li>Baigiamai šlifuokite popieriumi, apvyniotu apie Ø25–30 mm kotelį.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s12" data-k="s12"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z13" data-row>
+        <div class="badge">13</div>
+        <div class="step-body">
+          <h4>Suformuokite nugarą ir suapvalinkite rankeną</h4>
+          <div class="meta"><span class="chip">1–2 val.</span><span class="chip">dildės, šlifavimo juostelė</span></div>
+          <ul>
+            <li>Mentelės nugarą išgaubkite pagal įdubą: sienelė visur 4–5 mm, kraštai 3–4 mm.</li>
+            <li><strong>Aštuonkampio metodas rankenai:</strong> kiekvienoje plokštumoje nubrėžkite dvi linijas 8 mm atstumu nuo briaunų ir nuimkite kampus iki jų. Gausite aštuonkampį. Nuimkite 8 naujus kampus (16 kampų), tada suapvalinkite šlifavimo juostele, traukdami ją kaip batų blizgintoją.</li>
+            <li><strong>Su frezeriu:</strong> apvalinimo freza R12–R14 visoms keturioms briaunoms, likusį darbą atlikite dilde.</li>
+            <li>Perėjimas iš rankenos į mentelę turi būti sklandus, be laiptelio.</li>
+            <li>Prie magneto lizdo dildę veskite išilgai, kad neišdaužytumėte jo kraštų.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s13" data-k="s13"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z14" data-row>
+        <div class="badge">14</div>
+        <div class="step-body">
+          <h4>Nupjaukite galus ir šlifuokite</h4>
+          <div class="meta"><span class="chip">1 val.</span><span class="chip">P80 → P240</span></div>
+          <ul>
+            <li>Nupjaukite galų atsargą iki 530 mm. Rankenos viršūnę užapvalinkite kaip kupolą (R14), mentelės galą – lanku pagal šabloną.</li>
+            <li>Šlifuokite iš eilės P80 (forma), P120, P180, P240. Nepraleiskite numerių, kitaip liks įbrėžimai.</li>
+            <li>Pakelkite plaušą: nuvalykite drėgnu skudurėliu, leiskite išdžiūti ~1 val., lengvai pašlifuokite P240. Po aliejaus rankena liks lygi.</li>
+            <li>Patikrinkite šoninėje šviesoje, ar neliko skersinių įbrėžimų.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s14" data-k="s14"> Atlikta</label>
+        </div>
+      </article>
+
+      <div class="phase"><span class="rng">15–17</span><h3>Laikiklis</h3></div>
+
+      <article class="step" id="z15" data-row>
+        <div class="badge">15</div>
+        <div class="step-body">
+          <h4>Paruoškite trinkelių juostą</h4>
+          <div class="meta"><span class="chip">20 min</span></div>
+          <ul>
+            <li>Išpjaukite 50 × 24 mm skerspjūvio, ~200 mm ilgio juostą. Iš jos išeis 3–4 laikikliai, o ilgą juostą lengviau laikyti ir apdirbti.</li>
+            <li>Pluoštas turi eiti išilgai juostos. Tada laikiklio rievės bus vertikalios, kaip originale.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s15" data-k="s15"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z16" data-row>
+        <div class="badge">16</div>
+        <div class="step-body">
+          <h4>Padarykite lovelį rankenai</h4>
+          <div class="meta"><span class="chip">30–60 min</span><span class="chip">Forstner Ø30, frezeris arba kaltas</span></div>
+          <ul>
+            <li>Lovelis: spindulys R15 (Ø30), gylis 6,5 mm, centre, per visą laikiklio aukštį. Rankena Ø28 gulės su ~1 mm tarpu šonuose.</li>
+            <li><strong>A būdas, gręžimo staklės ir Forstner Ø30:</strong> supjaustykite juostą 45 mm trinkelėmis. Prie trinkelės priekio stipriai suspauskite tokio pat dydžio pagalbinę trinkelę. Skylės centrą žymėkite ant viršaus, 8,5 mm į pagalbinės pusę nuo sandūros. Gręžkite kiaurai, 45 mm. Atskyrus liks lygus 6,5 mm gylio lovelis.</li>
+            <li><strong>B būdas, frezeris:</strong> pusapvale (griovelio) freza ~Ø30 išfrezuokite lovelį visoje juostoje keliais praėjimais, tada supjaustykite 45 mm trinkelėmis.</li>
+            <li><strong>C būdas, rankomis:</strong> lenktu kaltu išskobkite lovelį, tada šlifuokite popieriumi, apvyniotu apie Ø30 vamzdelį ar kotelį, kol rankena įguls be klibėjimo.</li>
+            <li>Patikrinkite su šaukštu: rankena turi gulėti ramiai ir nesisupti.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s16" data-k="s16"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z17" data-row>
+        <div class="badge">17</div>
+        <div class="step-body">
+          <h4>Lizdas magnetui, briaunos, šlifavimas</h4>
+          <div class="meta"><span class="chip">30 min</span></div>
+          <ul>
+            <li>Lovelio dugno centre (22,5 mm nuo viršaus) išgręžkite Ø10 mm lizdą. Gylis = magnetų aukštis + 0,2 mm: magnetas bus vos žemiau lovelio dugno ir nesibraižys.</li>
+            <li>Jei laikiklį prisuksite (22 žingsnis): lizdo dugne išgręžkite Ø4,5 mm kiaurymę ir paplatinkite ją slaptagalviui varžtui, kad galvutė būtų lygi su lizdo dugnu. Magnetas vėliau prilips prie varžto galvutės ir ją uždengs.</li>
+            <li>Nuapvalinkite išorines briaunas (~R2–3) ir šlifuokite P120 → P240. Nugara (prie sienos) turi likti visiškai plokščia.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s17" data-k="s17"> Atlikta</label>
+        </div>
+      </article>
+
+      <div class="phase"><span class="rng">18–20</span><h3>Ženklas, apdaila, magnetai</h3></div>
+
+      <article class="step" id="z18" data-row>
+        <div class="badge">18</div>
+        <div class="step-body">
+          <h4>Savo ženklas (nebūtina)</h4>
+          <div class="meta"><span class="chip">30 min</span></div>
+          <ul>
+            <li><strong>Lazeriu:</strong> VILNIUS TECH „LinkMenų fabrikas“ (min. 20 € + PVM, failas DXF) arba graviruotojai per paslaugos.lt.</li>
+            <li><strong>Rankomis:</strong> medžio deginimo rinkinys Pebaro 0269 (18,50 €). Pirmiau pasitreniruokite ant atraižos.</li>
+            <li>Darykite prieš apdailą. AESKA logotipo nedėkite, sugalvokite savo ženklą.</li>
+          </ul>
+          <p class="buy"><b>Kur</b><a href="https://vilniustech.lt/en/linkmenu-fabrikas/services/laser-cutting-and-engraving/">LinkMenų fabrikas</a> · <a href="https://paslaugos.lt/graviravimo-paslaugos/vilniuje">graviruotojai Vilniuje</a> · <a href="https://www.senukai.lt/p/rinkinys-medziui-deginti-pebaro-0269-12-w/2it1">Pebaro 0269</a></p>
+          <label class="done-l"><input type="checkbox" id="s18" data-k="s18"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z19" data-row>
+        <div class="badge">19</div>
+        <div class="step-body">
+          <h4>Dažykite ir aliejuokite</h4>
+          <div class="meta"><span class="chip">1 val. darbo + 2 paros džiūti</span><span class="chip">Osmo, skuduras, pirštinės</span></div>
+          <ul>
+            <li>Pirmiau išbandykite spalvą ant atraižos iš tos pačios lentos: bukas sugeria nevienodai, o bandinys parodys tikrą toną.</li>
+            <li>Magnetų lizdus ir laikiklio nugarą (ten bus lipni juosta) užklijuokite dažymo juostele: prie aliejaus ir vaško nei epoksidas, nei montažinė juosta gerai nelaiko.</li>
+            <li><strong>1 sluoksnis:</strong> Osmo Hardwax Tints labai plonai, skuduru. Po 15–20 min. nuvalykite perteklių. Džiūsta 8–10 val.</li>
+            <li><strong>2 sluoksnis:</strong> Osmo 3062 bespalvis arba dar vienas atspalvio sluoksnis, jei norite tamsiau. Vėl plonai, perteklių nuvalykite. Džiūsta 8–10 val.</li>
+            <li>Šaukštu galima naudotis po 1–2 parų, visiškai sukietėja per 1–2 savaites.</li>
+          </ul>
+          <p class="warn"><strong>Gaisro pavojus.</strong> Aliejuoti skudurai gali savaime užsidegti. Išdžiovinkite juos išskleistus lauke arba laikykite sandariame inde su vandeniu.</p>
+          <label class="done-l"><input type="checkbox" id="s19" data-k="s19"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z20" data-row>
+        <div class="badge">20</div>
+        <div class="step-body">
+          <h4>Įklijuokite magnetus, saugokite poliškumą</h4>
+          <div class="meta"><span class="chip">20 min + 24 val.</span><span class="chip">epoksidas, alkoholis, markeris</span></div>
+          <ul>
+            <li><strong>Kodėl po apdailos:</strong> epoksido išspaudos neįgertų dažų ir aplink magnetą liktų šviesus žiedas. Be to, epoksidas silpnai kimba prie aliejuoto paviršiaus, todėl lizdai buvo užklijuoti.</li>
+            <li><strong>Poliškumas:</strong> sudėkite visus vieno komplekto magnetus į vieną stulpelį (jie susitrauks). Markeriu pažymėkite ✕ abu išorinius galus. Perskirkite stulpelį per vidurį: viena pusė rankenai, kita laikikliui. Klijuokite ✕ žemyn, į lizdo dugną. Tada į išorę žiūrės paviršiai, kurie vienas kitą traukė.</li>
+            <li><strong>Keli komplektai:</strong> visuose laikikliuose į išorę turi žiūrėti tas pats polius, visuose šaukštuose priešingas. Pasilikite vieną pažymėtą magnetą tikrinimui. Tada bet kuris šaukštas tiks prie bet kurio laikiklio.</li>
+            <li><strong>Klijavimas:</strong> lizdą ir magnetus nuvalykite alkoholiu. Sumaišykite epoksidą, nedaug įlašinkite į lizdo dugną, įspauskite magnetą medine lazdele (ne plieniniu įrankiu), išspaudas iš karto nuvalykite alkoholiu.</li>
+            <li>Kol klijai kietėja (24 val.), šaukštą ir laikiklį laikykite bent 30 cm vieną nuo kito ir nuo plieninių daiktų, kitaip magnetai išsitrauks iš lizdų.</li>
+            <li>Jei laikiklį prisuksite, jo magnetą klijuokite tik po montavimo (22 žingsnis), nes varžtas eina per lizdą.</li>
+          </ul>
+          <p class="warn"><strong>Vaikai.</strong> Du praryti magnetai pavojingi gyvybei, todėl magnetai turi būti įklijuoti tvirtai. Po paros patikrinkite, ar nė vienas nejuda.</p>
+          <label class="done-l"><input type="checkbox" id="s20" data-k="s20"> Atlikta</label>
+        </div>
+      </article>
+
+      <div class="phase"><span class="rng">21–23</span><h3>Montavimas</h3></div>
+
+      <article class="step" id="z21" data-row>
+        <div class="badge">21</div>
+        <div class="step-body">
+          <h4>Pasirinkite vietą ir paruoškite sieną</h4>
+          <div class="meta"><span class="chip">15 min</span></div>
+          <ul>
+            <li>Aukštis: laikiklio centras ~80 cm nuo grindų. Tada šaukštas kabės nuo ~94 iki ~41 cm, galas bus virš grindjuostės ir batų.</li>
+            <li>Siena turi būti lygi, sausa, o dažai tvirtai laikytis. Testas: priklijuokite ir staigiai nuplėškite lipnią juostelę. Jei ant jos lieka dažų, klijuotas laikiklis nelaikys, rinkitės varžtą.</li>
+            <li>Vietą nuvalykite izopropilo alkoholiu ir leiskite išdžiūti. Klijuokite, kai patalpoje bent 15 °C.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s21" data-k="s21"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z22" data-row>
+        <div class="badge">22</div>
+        <div class="step-body">
+          <h4>Pritvirtinkite laikiklį</h4>
+          <div class="meta"><span class="chip">15 min + 24 val.</span><span class="chip">juosta arba varžtas, gulsčiukas</span></div>
+          <ul>
+            <li><strong>Klijuojant:</strong> nuo laikiklio nugaros nuimkite dažymo juostelę ir priklijuokite dvi 19 × 40 mm montažinės juostos atkarpas beveik per visą plotą. Nuplėškite plėvelę, pridėkite prie žymės, gulsčiuku patikrinkite, kad lovelis vertikalus, ir stipriai spauskite 30 s.</li>
+            <li>Šaukšto nekabinkite 24 val. Montažinės juostos visą stiprumą pasiekia per 1–3 paras.</li>
+            <li><strong>Prisukant</strong> (tinkuota ar tekstūrinė siena, tapetai): slaptagalvis varžtas Ø4 × 40 mm su kaiščiu per laikiklio lizdą, tada į lizdą virš varžto galvutės įklijuokite magnetą (20 žingsnio būdu).</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s22" data-k="s22"> Atlikta</label>
+        </div>
+      </article>
+
+      <article class="step" id="z23" data-row>
+        <div class="badge">23</div>
+        <div class="step-body">
+          <h4>Išbandykite ir prižiūrėkite</h4>
+          <div class="meta"><span class="chip">5 min · kartą per metus</span></div>
+          <ul>
+            <li>Įstatykite rankeną į lovelį: magnetai turi ją prisitraukti, šaukštas neturi slysti žemyn. Nuimkite traukdami į save, ne žemyn.</li>
+            <li>Jei slysta: pakeiskite magnetus stipresniais (B variantas) arba lovelio šonuose priklijuokite plonas (~0,5 mm) odos juosteles, kad padidėtų trintis.</li>
+            <li>Valykite sausu ar drėgnu skudurėliu, nemerkite į vandenį.</li>
+            <li>Kartą per metus plonai patepkite Osmo 3062.</li>
+          </ul>
+          <label class="done-l"><input type="checkbox" id="s23" data-k="s23"> Atlikta</label>
+        </div>
+      </article>
+
+      <div class="phase"><span class="rng">24</span><h3>Jei gaminsite daugiau</h3></div>
+
+      <article class="step" id="z24" data-row>
+        <div class="badge">24</div>
+        <div class="step-body">
+          <h4>Serija, dovanos ar pardavimas</h4>
+          <div class="meta"><span class="chip">nebūtina</span></div>
+          <ul>
+            <li>Visus ruošinius pjaukite iš vienos lentos, laikiklius iš vienos juostos. Pasidarykite gręžimo šabloną (lentelė su Ø10 kreipiamąja skyle ir atrama), kad visi lizdai būtų toje pačioje vietoje.</li>
+            <li>Nuo ~10 vnt. verta užsakyti CNC frezavimą. Reikės DXF brėžinių arba 3D modelio (STEP), medienos rūšies ir kiekio.</li>
+            <li>Ženklinimui serijoje naudokite lazerį.</li>
+            <li>Parduodami nenaudokite AESKA pavadinimo, logotipo ir nuotraukų, o formą pakeiskite savaip. ES registruotus dizainus galite patikrinti DesignView paieškoje.</li>
+          </ul>
+          <p class="buy"><b>Kur</b><a href="https://paslaugos.lt/frezavimas-cnc/vilniuje">CNC Vilniuje</a> · <a href="https://paslaugos.lt/frezavimas-cnc/kaune">CNC Kaune</a> · <a href="https://paslaugos.lt/graviravimo-paslaugos/vilniuje">graviravimas</a> · <a href="https://www.tmdn.org/tmdsview-web/">DesignView</a></p>
+          <label class="done-l"><input type="checkbox" id="s24" data-k="s24"> Atlikta</label>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SAUGA -->
+  <section id="sauga">
+    <div class="wrap">
+      <div class="sec-head"><h2>Sauga</h2></div>
+      <ul class="safety">
+        <li><strong>Dulkės.</strong> Kietmedžio dulkės priskiriamos kancerogenams. Šlifuodami dėvėkite FFP2 ar FFP3 respiratorių, dulkes siurbkite.</li>
+        <li><strong>Aštrūs įrankiai.</strong> Ruošinį visada suspauskite, pjaukite ir drožkite nuo savęs.</li>
+        <li><strong>Magnetai.</strong> Neodimio magnetai susitrenkę skyla ir gali įspausti odą. Laikykite juos atokiau nuo kardiostimuliatorių ir mažų vaikų.</li>
+        <li><strong>Epoksidas.</strong> Dirbkite su nitrilo pirštinėmis, vėdinamoje patalpoje.</li>
+        <li><strong>Aliejuoti skudurai</strong> gali savaime užsidegti. Išdžiovinkite išskleistus lauke arba laikykite sandariame inde su vandeniu.</li>
+        <li><strong>Elektriniai įrankiai.</strong> Akiniai ir klausos apsauga. Siaurapjūklį junkite tik tada, kai ruošinys suspaustas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ŠALTINIAI -->
+  <section id="saltiniai">
+    <div class="wrap">
+      <div class="sec-head"><h2>Šaltiniai</h2><span class="aside">Tikrinta 2026-11-22</span></div>
+      <ul class="sources">
+        <li><a href="https://aeska.co/products/magnetic-shoehorn">AESKA Magnetic Shoehorn</a>: ilgis, mediena, tvirtinimas, spalvos, kaina, nuotraukos</li>
+        <li><a href="https://www.supermagnete.lt/diskiniai-magnetai-neodimio/diskinis-magnetas-10mm-5mm_S-10-05-N52N">supermagnete.lt</a>: magnetų sukibimo jėga, kainos, minimalus užsakymas</li>
+        <li><a href="https://www.lemona.lt/en/disc-magnet-o10x3mm-ndfeb-n42.html">Lemona</a>: Ø10 × 3 mm magnetų kaina ir likučiai parduotuvėse</li>
+        <li><a href="https://www.ermitazas.lt/p/mediniu-grindu-ir-baldu-aliejus-su-vasku-osmo-hardwax-tints-3073-zemes-sp-5-ml-hltvaesv">Ermitažas</a>: Osmo mėginiai, epoksidiniai klijai, Forstner grąžtas</li>
+        <li><a href="https://www.senukai.lt/paieska?q=tesa%20powerbond">Senukai</a>: juosta, kaltai, dildės, pjūklai, spaustuvai, respiratoriai</li>
+        <li><a href="https://www.medis.lt/skelbimas/azuolo-buko-riesuto-ir-kita-dziovinta-mediena-lietuvoje-16853">Medis.lt</a>: buko lentos Vilniaus r., uosio ruošiniai Jonavos r.</li>
+        <li><a href="https://www.knivesandtools.com/en/pt/-morakniv-hook-knife-164-spoon-knife-right-handed-with-sheath.htm">Knivesandtools</a>: Morakniv 164 lenktas peilis</li>
+        <li><a href="https://makerspace.lt/">Kaunas Makerspace</a>, <a href="https://www.lnb.lt/en/spaces/creative-and-leisure-spaces/pats-sau-workshop">LNB „Pats sau“</a>, <a href="https://vilniustech.lt/en/linkmenu-fabrikas/services/laser-cutting-and-engraving/">LinkMenų fabrikas</a></li>
+        <li><a href="https://paslaugos.lt/frezavimas-cnc/vilniuje">Paslaugos.lt</a>: CNC, graviravimas, staliai, įrankių nuoma</li>
+        <li><a href="https://www.tmdn.org/tmdsview-web/">DesignView</a>: ES registruotų dizainų paieška</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Paruošta 2026-11-22. Kainos ir likučiai keičiasi, todėl prieš važiuodami patikrinkite parduotuvės puslapį. Matmenys, išskyrus 530 mm ilgį, atkurti iš AESKA nuotraukų. Pažymėti žingsniai ir pirkiniai saugomi tik šioje naršyklėje.</div>
+</footer>
+
+<script>
+(function () {
+  var KEY = 'magnetinis-saukstas-v1';
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { state = {}; }
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('input[data-k]'));
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function update() {
+    var steps = boxes.filter(function (b) { return b.dataset.k.charAt(0) === 's'; });
+    var buys = boxes.filter(function (b) { return b.dataset.k.charAt(0) === 'b'; });
+    var doneSteps = steps.filter(function (b) { return b.checked; }).length;
+    document.getElementById('prog-n').textContent = doneSteps;
+    document.getElementById('prog-bar').style.setProperty('--p', (doneSteps / steps.length * 100) + '%');
+    document.getElementById('buy-n').textContent = buys.filter(function (b) { return b.checked; }).length;
+    boxes.forEach(function (b) {
+      var row = b.closest('[data-row]');
+      if (row) row.classList.toggle('is-done', b.checked);
+    });
+  }
+  boxes.forEach(function (b) {
+    if (state[b.dataset.k]) b.checked = true;
+    b.addEventListener('change', function () { state[b.dataset.k] = b.checked; save(); update(); });
+  });
+  update();
+})();
+</script>
+</body>
+</html>
